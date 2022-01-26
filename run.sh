@@ -1,2 +1,2 @@
-gcc $1.c -lomp -o $1;
+gcc $1.c -fopenmp -o $1;
 ./$1
