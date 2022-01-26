@@ -27,8 +27,11 @@ int main()
             scanf("%d", &b[i][j]);
         }
 
-// adding two matrices
+    // adding two matrices
+    omp_set_dynamic(0);
+    omp_set_num_threads(NUM_THREADS);
 #pragma omp parallel for num_threads(NUM_THREADS)
+    printf("\n\n%d thread count \n", omp_get_num_threads());
     for (i = 0; i < r; ++i)
 #pragma omp parallel for num_threads(NUM_THREADS)
         for (j = 0; j < c; ++j)
