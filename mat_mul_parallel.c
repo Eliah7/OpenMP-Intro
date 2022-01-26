@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-#define NUM_THREADS 2;
+#define NUM_THREADS 2
 
 // function to get matrix elements entered by the user
 void getMatrixElements(int matrix[][10], int row, int column)
