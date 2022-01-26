@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-#define NUM_THREADS 1
+#define NUM_THREADS 2
 
 int main()
 {
