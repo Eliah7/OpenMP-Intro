@@ -1,16 +1,18 @@
 #include <stdio.h>
 #include <omp.h>
 
+#define NUM_THREADS 2;
+
 // function to get matrix elements entered by the user
 void getMatrixElements(int matrix[][10], int row, int column)
 {
 
     printf("\nEnter elements: \n");
 
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
     for (int i = 0; i < row; ++i)
     {
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
         for (int j = 0; j < column; ++j)
         {
             printf("Enter a%d%d: ", i + 1, j + 1);
@@ -27,10 +29,10 @@ void multiplyMatrices(int first[][10],
 {
 
     // Initializing elements of matrix mult to 0.
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
     for (int i = 0; i < r1; ++i)
     {
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
         for (int j = 0; j < c2; ++j)
         {
             result[i][j] = 0;
@@ -38,13 +40,13 @@ void multiplyMatrices(int first[][10],
     }
 
     // Multiplying first and second matrices and storing it in result
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
     for (int i = 0; i < r1; ++i)
     {
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
         for (int j = 0; j < c2; ++j)
         {
-#pragma omp parallel for
+#pragma omp parallel for num_threads(NUM_THREADS)
             for (int k = 0; k < c1; ++k)
             {
                 result[i][j] += first[i][k] * second[k][j];
