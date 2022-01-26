@@ -33,7 +33,7 @@ int main()
     // adding two matrices
     omp_set_dynamic(0);
     omp_set_num_threads(NUM_THREADS);
-    printf("\n\n%d thread count \n", omp_get_num_threads());
+
     double start, end, time;
     start = omp_get_wtime();
 #pragma omp parallel for num_threads(NUM_THREADS)
@@ -41,7 +41,7 @@ int main()
 #pragma omp parallel for num_threads(NUM_THREADS)
         for (j = 0; j < c; ++j)
         {
-
+            printf("\n\n%d thread count \n", omp_get_num_threads());
             sum[i][j] = a[i][j] + b[i][j];
         }
     end = omp_get_wtime();
