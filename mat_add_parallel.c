@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <omp.h>
 
-#define NUM_THREADS 2
+#define NUM_THREADS 1
 
 int main()
 {
-    omp_set_dynamic(0);
     omp_set_num_threads(NUM_THREADS);
 
     int r, c, a[100][100], b[100][100], sum[100][100], i, j;
