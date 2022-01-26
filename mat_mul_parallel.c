@@ -29,6 +29,7 @@ void multiplyMatrices(int first[][10],
 {
 
     // Initializing elements of matrix mult to 0.
+    printf("\n\n%d thread count \n", omp_get_num_threads());
 #pragma omp parallel for num_threads(NUM_THREADS)
     for (int i = 0; i < r1; ++i)
     {
@@ -73,6 +74,9 @@ void display(int result[][10], int row, int column)
 
 int main()
 {
+    omp_set_dynamic(0);
+    omp_set_num_threads(NUM_THREADS);
+
     int first[10][10], second[10][10], result[10][10], r1, c1, r2, c2;
     printf("Enter rows and column for the first matrix: ");
     scanf("%d %d", &r1, &c1);
@@ -103,7 +107,7 @@ int main()
     multiplyMatrices(first, second, result, r1, c1, r2, c2);
     end = omp_get_wtime();
     time = end - start;
-    printf("\n\n%d thread count \n", omp_get_num_threads());
+
     printf("Time: %lf\n", time);
     // display the result
     display(result, r1, c2);
