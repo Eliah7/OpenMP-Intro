@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <omp.h>
 
-#define MAX_THREADS 4
+#define MAX_THREADS 16
 
 static long num_steps = 100000000;
 double step;
