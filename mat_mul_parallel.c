@@ -27,7 +27,8 @@ void multiplyMatrices(int first[][10],
                       int result[][10],
                       int r1, int c1, int r2, int c2)
 {
-
+    omp_set_dynamic(0);
+    omp_set_num_threads(4);
     // Initializing elements of matrix mult to 0.
     printf("\n\n%d thread count \n", omp_get_num_threads());
 #pragma omp parallel for num_threads(NUM_THREADS)
