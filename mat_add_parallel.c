@@ -42,6 +42,7 @@ int main()
         }
     end = omp_get_wtime();
     time = end - start;
+    printf("Time: %lf\n", time);
     // printing the result
     printf("\nSum of two matrices: \n");
     for (i = 0; i < r; ++i)
